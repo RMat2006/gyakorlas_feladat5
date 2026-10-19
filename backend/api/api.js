@@ -25,6 +25,25 @@ router.get('/test', (request, response) => {
         message: 'Ez a végpont működik.'
     });
 });
+const tomb = [];
+
+router.post('/todos', (request, response) => {
+    tomb.push(request.body.task)
+    response.status(200).json({
+        message: 'Ez a végpont működik.',
+        result: tomb
+        
+    });
+    
+});
+router.get('/todos', (request, response) => {
+    response.status(200).json({
+        message: 'Ez a végpont működik.',
+        objektum: tomb
+    });
+});
+
+
 
 //?GET /api/testsql
 router.get('/testsql', async (request, response) => {
